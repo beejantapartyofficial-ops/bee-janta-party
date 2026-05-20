@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="theme-color" content="#111111" />
+
 <title>Bee Janta Party — Rebuild What Keeps Us Alive</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,15 +12,15 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
+<script async src="https://tally.so/widgets/embed.js"></script>
+
 <style>
+
 :root{
 --gold:#F5B400;
---green:#123524;
 --off:#F8F6F1;
 --black:#111111;
---blue:#4DA8DA;
---card:#171717;
---muted:#b9b9b9;
+--muted:#bdbdbd;
 }
 
 *{
@@ -34,404 +35,173 @@ scroll-behavior:smooth;
 
 body{
 font-family:'Inter',sans-serif;
-background:var(--black);
-color:var(--off);
+background:#111111;
+color:#F8F6F1;
 overflow-x:hidden;
 line-height:1.5;
 }
 
-img{
-max-width:100%;
-display:block;
-}
-
-a{
-text-decoration:none;
-color:inherit;
-}
-
 .container{
-width:min(1180px,92%);
+width:min(1150px,92%);
 margin:auto;
 }
-
-section{
-position:relative;
-overflow:hidden;
-}
-
-/* NAV */
-
-.nav{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-z-index:999;
-backdrop-filter:blur(16px);
-background:rgba(0,0,0,0.45);
-border-bottom:1px solid rgba(255,255,255,0.06);
-}
-
-.nav-inner{
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:16px 0;
-}
-
-.logo{
-display:flex;
-align-items:center;
-gap:12px;
-font-weight:800;
-font-size:1rem;
-letter-spacing:0.3px;
-}
-
-.logo-circle{
-width:42px;
-height:42px;
-border-radius:50%;
-background:linear-gradient(135deg,var(--gold),#ffd86a);
-display:flex;
-align-items:center;
-justify-content:center;
-color:#111;
-font-size:1.2rem;
-font-weight:900;
-}
-
-.nav-links{
-display:flex;
-gap:28px;
-font-size:0.95rem;
-color:#ddd;
-}
-
-.nav-links a:hover{
-color:var(--gold);
-}
-
-.nav-btn{
-padding:12px 18px;
-border-radius:100px;
-background:var(--gold);
-color:#111;
-font-weight:800;
-font-size:0.9rem;
-}
-
-/* HERO */
 
 .hero{
 min-height:100vh;
 display:flex;
 align-items:center;
-padding:120px 0 80px;
+padding:120px 0 90px;
 background:
-linear-gradient(to bottom, rgba(0,0,0,0.82), rgba(0,0,0,0.88)),
-url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
-}
-
-.hero-grid{
-display:grid;
-grid-template-columns:1.2fr 0.8fr;
-gap:50px;
-align-items:center;
+linear-gradient(to bottom, rgba(0,0,0,.78), rgba(0,0,0,.88)),
+url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1800&auto=format&fit=crop') center/cover no-repeat;
 }
 
 .badge{
-display:inline-flex;
-align-items:center;
-gap:10px;
+display:inline-block;
 padding:12px 18px;
-border-radius:100px;
-background:rgba(255,255,255,0.06);
-border:1px solid rgba(255,255,255,0.08);
-color:#ddd;
-font-size:0.85rem;
+border-radius:999px;
+background:rgba(255,255,255,.08);
+border:1px solid rgba(255,255,255,.08);
+font-size:.82rem;
 margin-bottom:28px;
 }
 
 .hero h1{
-font-size:clamp(3rem,8vw,6.8rem);
-line-height:0.92;
+font-size:clamp(3rem,8vw,7rem);
+line-height:.92;
 font-weight:900;
 letter-spacing:-2px;
 margin-bottom:24px;
 }
 
 .gradient{
-background:linear-gradient(90deg,var(--gold),#ffe17c);
+background:linear-gradient(90deg,#F5B400,#ffe17d);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
 
 .hero p{
+max-width:720px;
 font-size:1.08rem;
-color:#d0d0d0;
-max-width:650px;
-margin-bottom:36px;
 line-height:1.9;
-}
-
-.button-row{
-display:flex;
-flex-wrap:wrap;
-gap:16px;
-margin-bottom:40px;
+color:#d0d0d0;
+margin-bottom:36px;
 }
 
 .btn{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-padding:18px 28px;
-border-radius:100px;
-font-weight:800;
-transition:0.3s ease;
-}
-
-.btn-primary{
-background:var(--gold);
+display:inline-block;
+padding:18px 30px;
+border-radius:999px;
+background:#F5B400;
 color:#111;
-box-shadow:0 10px 30px rgba(245,180,0,0.25);
+font-weight:800;
+text-decoration:none;
+box-shadow:0 12px 30px rgba(245,180,0,.25);
 }
-
-.btn-primary:hover{
-transform:translateY(-3px);
-}
-
-.btn-secondary{
-border:1px solid rgba(255,255,255,0.12);
-background:rgba(255,255,255,0.04);
-}
-
-.hero-card{
-background:rgba(255,255,255,0.04);
-border:1px solid rgba(255,255,255,0.06);
-border-radius:28px;
-padding:28px;
-backdrop-filter:blur(12px);
-}
-
-.hero-card h3{
-font-size:1.4rem;
-margin-bottom:14px;
-}
-
-.hero-card p{
-margin-bottom:0;
-font-size:0.96rem;
-line-height:1.8;
-}
-
-.stats{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:16px;
-margin-top:22px;
-}
-
-.stat{
-background:rgba(255,255,255,0.04);
-padding:20px;
-border-radius:22px;
-border:1px solid rgba(255,255,255,0.06);
-}
-
-.stat h2{
-font-size:1.9rem;
-color:var(--gold);
-margin-bottom:4px;
-}
-
-.stat span{
-font-size:0.92rem;
-color:#ccc;
-}
-
-/* GENERAL */
 
 .section{
-padding:110px 0;
+padding:100px 0;
 }
 
-.section-title{
-font-size:clamp(2.2rem,5vw,4.8rem);
+.title{
+font-size:clamp(2.2rem,5vw,4.5rem);
 line-height:1;
 font-weight:900;
 margin-bottom:24px;
-letter-spacing:-1px;
 }
 
-.section-copy{
+.copy{
 max-width:760px;
-color:var(--muted);
-font-size:1.05rem;
 line-height:1.9;
-margin-bottom:60px;
+font-size:1.05rem;
+color:var(--muted);
+margin-bottom:55px;
 }
 
-.dark{
-background:#0b0b0b;
-}
-
-.light{
-background:#f5f2e9;
-color:#111;
-}
-
-.light .section-copy{
-color:#444;
-}
-
-/* CARDS */
-
-.grid-4{
+.cards{
 display:grid;
-grid-template-columns:repeat(4,1fr);
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
 gap:24px;
 }
 
 .card{
-background:rgba(255,255,255,0.04);
-border:1px solid rgba(255,255,255,0.06);
-border-radius:28px;
+background:#171717;
 padding:30px;
-transition:0.3s ease;
-}
-
-.card:hover{
-transform:translateY(-6px);
-border-color:rgba(245,180,0,0.4);
-}
-
-.light .card{
-background:white;
-border:1px solid rgba(0,0,0,0.06);
-}
-
-.card-icon{
-font-size:2rem;
-margin-bottom:20px;
+border-radius:28px;
+border:1px solid rgba(255,255,255,.06);
 }
 
 .card h3{
-font-size:1.5rem;
+font-size:1.4rem;
 margin-bottom:12px;
 }
 
 .card p{
-color:#bfbfbf;
 line-height:1.8;
-font-size:0.96rem;
+color:#bdbdbd;
 }
 
+.light{
+background:#f5f1e7;
+color:#111;
+}
+
+.light .copy,
 .light .card p{
 color:#555;
 }
 
-/* MAP */
-
-.map-box{
-background:
-linear-gradient(rgba(18,53,36,0.88),rgba(18,53,36,0.9)),
-url('https://images.unsplash.com/photo-1521295121783-8a321d551ad2?q=80&w=1600&auto=format&fit=crop') center/cover;
-border-radius:36px;
-padding:100px 50px;
-text-align:center;
-border:1px solid rgba(255,255,255,0.08);
+.light .card{
+background:white;
+border:1px solid rgba(0,0,0,.06);
 }
 
-.map-box h2{
+.map{
+background:
+linear-gradient(rgba(18,53,36,.88),rgba(18,53,36,.92)),
+url('https://images.unsplash.com/photo-1521295121783-8a321d551ad2?q=80&w=1800&auto=format&fit=crop') center/cover;
+padding:100px 30px;
+border-radius:36px;
+text-align:center;
+}
+
+.map h2{
 font-size:clamp(2rem,5vw,4rem);
 line-height:1.1;
-margin-bottom:24px;
+margin-bottom:20px;
 }
 
-.map-box p{
-max-width:720px;
+.map p{
+max-width:700px;
 margin:auto;
 line-height:1.9;
-color:#d8d8d8;
+color:#ddd;
 }
 
-/* JOIN */
-
-.join-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:24px;
+.form-wrapper{
+background:#171717;
+padding:16px;
+border-radius:32px;
+border:1px solid rgba(255,255,255,.06);
+overflow:hidden;
 }
 
-.form-box{
-background:#151515;
-padding:34px;
-border-radius:30px;
-border:1px solid rgba(255,255,255,0.06);
-}
-
-.form-box h3{
-font-size:1.6rem;
-margin-bottom:10px;
-}
-
-.form-box p{
-color:#aaa;
-font-size:0.95rem;
-line-height:1.7;
-margin-bottom:22px;
-}
-
-input,
-textarea{
+iframe{
 width:100%;
+height:850px;
 border:none;
-outline:none;
-background:#0e0e0e;
-border:1px solid rgba(255,255,255,0.06);
-padding:16px 18px;
-border-radius:16px;
-margin-bottom:14px;
-color:white;
-font-family:inherit;
-font-size:0.96rem;
+border-radius:24px;
+background:transparent;
 }
-
-textarea{
-resize:vertical;
-min-height:110px;
-}
-
-.submit{
-width:100%;
-padding:18px;
-border:none;
-border-radius:16px;
-background:var(--gold);
-color:#111;
-font-weight:900;
-font-size:0.95rem;
-cursor:pointer;
-transition:0.3s ease;
-}
-
-.submit:hover{
-transform:translateY(-2px);
-}
-
-/* FINAL */
 
 .final{
-padding:140px 0;
-background:black;
+padding:130px 0;
 text-align:center;
+background:black;
 }
 
 .final h2{
-font-size:clamp(2.8rem,7vw,6rem);
+font-size:clamp(3rem,7vw,6rem);
 line-height:1;
 margin-bottom:28px;
 }
@@ -439,96 +209,35 @@ margin-bottom:28px;
 .final p{
 max-width:760px;
 margin:auto;
-font-size:1.1rem;
 line-height:1.9;
-color:#bfbfbf;
-margin-bottom:44px;
+font-size:1.08rem;
+color:#c5c5c5;
+margin-bottom:40px;
 }
-
-/* FOOTER */
 
 .footer{
-padding:50px 0;
-border-top:1px solid rgba(255,255,255,0.08);
-}
-
-.footer-inner{
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:20px;
-flex-wrap:wrap;
-}
-
-.footer-links{
-display:flex;
-gap:20px;
-flex-wrap:wrap;
-color:#bbb;
-font-size:0.95rem;
-}
-
-/* MOBILE */
-
-@media(max-width:1080px){
-
-.hero-grid{
-grid-template-columns:1fr;
-}
-
-.grid-4{
-grid-template-columns:repeat(2,1fr);
-}
-
-.join-grid{
-grid-template-columns:1fr;
-}
-
+padding:40px 0;
+border-top:1px solid rgba(255,255,255,.06);
+color:#9a9a9a;
+text-align:center;
 }
 
 @media(max-width:768px){
 
-.nav-links{
-display:none;
-}
-
 .hero{
-padding-top:110px;
+padding-top:140px;
 }
 
 .hero h1{
-font-size:3.5rem;
-letter-spacing:-1px;
+font-size:3.8rem;
 }
 
 .section{
 padding:80px 0;
 }
 
-.grid-4{
-grid-template-columns:1fr;
-}
-
-.stats{
-grid-template-columns:1fr 1fr;
-}
-
-.button-row{
-flex-direction:column;
-align-items:stretch;
-}
-
-.btn{
-width:100%;
-}
-
-.map-box{
-padding:70px 24px;
-}
-
-.footer-inner{
-flex-direction:column;
-align-items:flex-start;
+iframe{
+height:980px;
 }
 
 }
@@ -536,61 +245,36 @@ align-items:flex-start;
 @media(max-width:480px){
 
 .hero h1{
-font-size:2.9rem;
+font-size:3rem;
 }
 
-.section-title{
-font-size:2.3rem;
+.title{
+font-size:2.4rem;
 }
 
 .hero p,
-.section-copy,
+.copy,
 .final p{
 font-size:1rem;
 }
 
-.stats{
-grid-template-columns:1fr;
-}
-
-.logo span{
-font-size:0.9rem;
+iframe{
+height:1080px;
 }
 
 }
+
 </style>
 </head>
 
 <body>
 
-<nav class="nav">
-<div class="container nav-inner">
-
-<div class="logo">
-<div class="logo-circle">🐝</div>
-<span>Bee Janta Party</span>
-</div>
-
-<div class="nav-links">
-<a href="#mission">Mission</a>
-<a href="#movement">Movement</a>
-<a href="#join">Join</a>
-<a href="#pollinator">Pollinators</a>
-</div>
-
-<a href="#join" class="nav-btn">Join The Hive</a>
-
-</div>
-</nav>
-
 <section class="hero">
 
-<div class="container hero-grid">
-
-<div>
+<div class="container">
 
 <div class="badge">
-⚡ INDIA’S FIRST ECOLOGICAL CIVILIZATION MOVEMENT
+⚡ INDIA'S FIRST ECOLOGICAL CIVILIZATION MOVEMENT
 </div>
 
 <h1>
@@ -598,164 +282,58 @@ Rebuild What <span class="gradient">Keeps Us Alive.</span>
 </h1>
 
 <p>
-India doesn’t need another political party.
-India needs a civilization reset.
-Water. Soil. Food. Air. Community.
-The systems keeping us alive are collapsing — and this generation refuses to watch silently.
+Cockroaches survive collapse.
+Bees rebuild ecosystems.
+
+India doesn’t need more spectators while rivers die, soil collapses, food loses life and communities disappear.
+
+This generation refuses to watch silently.
 </p>
 
-<div class="button-row">
-<a href="#join" class="btn btn-primary">🐝 Join The Hive</a>
-<a href="#pollinator" class="btn btn-secondary">🌱 Become A Pollinator</a>
-</div>
-
-</div>
-
-<div class="hero-card">
-
-<h3>🌍 The Hive Is Awakening</h3>
-
-<p>
-A youth-powered movement rebuilding India through regeneration, community and ecological intelligence.
-</p>
-
-<div class="stats">
-
-<div class="stat">
-<h2>128K+</h2>
-<span>Hive Members</span>
-</div>
-
-<div class="stat">
-<h2>312</h2>
-<span>Cities Joining</span>
-</div>
-
-<div class="stat">
-<h2>5.2K</h2>
-<span>Pollinators</span>
-</div>
-
-<div class="stat">
-<h2>24/7</h2>
-<span>Movement Active</span>
-</div>
-
-</div>
-
-</div>
+<a href="#join" class="btn">
+🐝 Join The Hive
+</a>
 
 </div>
 
 </section>
 
-<section class="section dark" id="mission">
+<section class="section">
 
 <div class="container">
 
-<h2 class="section-title">
+<h2 class="title">
 This Is Not Development.
 </h2>
 
-<p class="section-copy">
-Our rivers are becoming sewers. Our food is losing life. Children are breathing poison. Soil is dying beneath our feet. Communities are becoming disconnected.
-The systems keeping us alive are collapsing.
+<p class="copy">
+Our rivers are becoming sewers.
+Our food is losing life.
+Children are breathing poison.
+Communities are disappearing.
 </p>
 
-<div class="grid-4">
+<div class="cards">
 
 <div class="card">
-<div class="card-icon">💧</div>
-<h3>Water</h3>
-<p>India’s groundwater, lakes and rivers are collapsing under pollution and extraction.</p>
-</div>
-
-<div class="card">
-<div class="card-icon">🍚</div>
-<h3>Food</h3>
-<p>Ultra-processed food systems are disconnecting humans from nutrition and real health.</p>
+<h3>💧 Water</h3>
+<p>India’s rivers and lakes are collapsing under pollution and neglect.</p>
 </div>
 
 <div class="card">
-<div class="card-icon">🌫️</div>
-<h3>Air</h3>
-<p>Millions breathe polluted air daily while clean air slowly becomes a luxury.</p>
+<h3>🍚 Food</h3>
+<p>Ultra-processed food systems are disconnecting people from real nutrition.</p>
 </div>
 
 <div class="card">
-<div class="card-icon">🌱</div>
-<h3>Soil</h3>
-<p>Dead soil creates dead societies. Soil is living infrastructure.</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="section light" id="movement">
-
-<div class="container">
-
-<h2 class="section-title">
-The Hive Rises.
-</h2>
-
-<p class="section-copy">
-We refuse to watch India collapse slowly.
-This generation will rebuild communities, restore ecosystems and regenerate the systems that keep humans alive.
-Not through outrage.
-Through regeneration.
-</p>
-
-<div class="grid-4">
-
-<div class="card">
-<div class="card-icon">🐝</div>
-<h3>Supporters</h3>
-<p>Join the hive and become part of a civilization rebuilding movement.</p>
+<h3>🌫️ Air</h3>
+<p>Millions breathe polluted air every single day.</p>
 </div>
 
 <div class="card">
-<div class="card-icon">🌱</div>
-<h3>Hive Leaders</h3>
-<p>Lead local missions, cleanups, plantations and regenerative action projects.</p>
+<h3>🌱 Soil</h3>
+<p>Dead soil creates dead civilizations.</p>
 </div>
-
-<div class="card">
-<div class="card-icon">🎥</div>
-<h3>Pollinators</h3>
-<p>Creators and influencers spreading ecological awareness across millions.</p>
-</div>
-
-<div class="card">
-<div class="card-icon">🧠</div>
-<h3>Hive Advisors</h3>
-<p>Scientists, educators, builders and ecological thinkers guiding the mission.</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="section dark">
-
-<div class="container">
-
-<div class="map-box">
-
-<h2>
-🐝 The Hive Is Spreading Across India
-</h2>
-
-<p>
-From villages to megacities, young people are beginning to reclaim the systems that keep life alive.
-This is not a campaign.
-This is a regeneration movement.
-</p>
 
 </div>
 
@@ -767,96 +345,88 @@ This is a regeneration movement.
 
 <div class="container">
 
-<h2 class="section-title">
-Why The Bee?
+<h2 class="title">
+The Hive Rises.
 </h2>
 
-<p class="section-copy">
-Bees protect ecosystems. Pollinate life. Build together. Survive together.
-A single bee is fragile.
-A hive is unstoppable.
+<p class="copy">
+We don’t want to merely survive collapse.
+
+We want to rebuild what keeps us alive.
+
+Not through outrage.
+Through regeneration.
 </p>
+
+<div class="cards">
+
+<div class="card">
+<h3>🐝 Supporters</h3>
+<p>Join the hive and become part of the movement.</p>
+</div>
+
+<div class="card">
+<h3>🧹 Cleanups</h3>
+<p>Restore lakes, streets and public spaces.</p>
+</div>
+
+<div class="card">
+<h3>🌳 Regeneration</h3>
+<p>Plant trees and rebuild biodiversity.</p>
+</div>
+
+<div class="card">
+<h3>🏘️ Community</h3>
+<p>Reconnect people through local action.</p>
+</div>
+
+</div>
 
 </div>
 
 </section>
 
-<section class="section dark" id="join">
+<section class="section">
 
 <div class="container">
 
-<h2 class="section-title">
+<div class="map">
+
+<h2>
+🐝 The Hive Is Spreading Across India
+</h2>
+
+<p>
+From villages to megacities, people are beginning to reclaim the systems that keep life alive.
+This is not politics.
+This is regeneration.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section" id="join">
+
+<div class="container">
+
+<h2 class="title">
 Become Part Of India’s Largest Regeneration Movement.
 </h2>
 
-<p class="section-copy">
-Choose your role in the hive. Support the movement, lead real-world missions, or become a pollinator spreading the message to millions.
+<p class="copy">
+Join the hive. Connect with the movement. Help rebuild what keeps us alive.
 </p>
 
-<div class="join-grid">
+<div class="form-wrapper">
 
-<div class="form-box">
-
-<h3>🐝 Join As Supporter</h3>
-
-<p>
-Become part of the movement and receive updates, missions and future community invites.
-</p>
-
-<input type="text" placeholder="Your Name">
-<input type="text" placeholder="City">
-<input type="tel" placeholder="WhatsApp Number">
-<input type="text" placeholder="Instagram Handle">
-
-<textarea placeholder="What change do you want to see?"></textarea>
-
-<button class="submit">
-JOIN THE HIVE
-</button>
-
-</div>
-
-<div class="form-box">
-
-<h3>🌱 Become A Hive Leader</h3>
-
-<p>
-Lead local action missions like cleanups, tree planting and community restoration.
-</p>
-
-<input type="text" placeholder="Your Name">
-<input type="text" placeholder="Locality">
-<input type="text" placeholder="Projects Completed">
-<input type="text" placeholder="Team Size">
-
-<textarea placeholder="Tell us about your mission"></textarea>
-
-<button class="submit">
-LEAD YOUR HIVE
-</button>
-
-</div>
-
-<div class="form-box" id="pollinator">
-
-<h3>🎥 Become A Pollinator</h3>
-
-<p>
-Creators, educators and influencers helping the movement spread across the internet.
-</p>
-
-<input type="text" placeholder="Creator Name">
-<input type="text" placeholder="Platforms">
-<input type="text" placeholder="Follower Count">
-<input type="text" placeholder="Content Niche">
-
-<textarea placeholder="How will you spread the movement?"></textarea>
-
-<button class="submit">
-BECOME A POLLINATOR
-</button>
-
-</div>
+<iframe
+data-tally-src="https://tally.so/r/xXRO69?transparentBackground=1"
+loading="lazy"
+title="🐝 Join The Hive">
+</iframe>
 
 </div>
 
@@ -877,10 +447,11 @@ Water is infrastructure.
 Soil is infrastructure.
 Food is infrastructure.
 Community is infrastructure.
+
 We are rebuilding the hive.
 </p>
 
-<a href="#join" class="btn btn-primary">
+<a href="#join" class="btn">
 🐝 JOIN THE HIVE
 </a>
 
@@ -888,26 +459,9 @@ We are rebuilding the hive.
 
 </section>
 
-<footer class="footer">
-
-<div class="container footer-inner">
-
-<div class="logo">
-<div class="logo-circle">🐝</div>
-<span>Bee Janta Party</span>
+<div class="footer">
+🐝 Bee Janta Party
 </div>
-
-<div class="footer-links">
-<a href="#">Mission</a>
-<a href="#">Movement</a>
-<a href="#">Pollinators</a>
-<a href="#">Instagram</a>
-<a href="#">Telegram</a>
-</div>
-
-</div>
-
-</footer>
 
 </body>
 </html>
