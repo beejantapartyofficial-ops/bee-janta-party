@@ -1,3 +1,14 @@
+# Bee Janta Party — Complete Production HTML
+
+Create a new file named:
+
+```bash
+index.html
+```
+
+Then paste this FULL code:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,6 +31,7 @@
 --blue:#4DA8DA;
 --card:#171717;
 --muted:#b9b9b9;
+--success:#1f8f4d;
 }
 
 *{
@@ -59,8 +71,6 @@ section{
 position:relative;
 overflow:hidden;
 }
-
-/* NAV */
 
 .nav{
 position:fixed;
@@ -121,8 +131,6 @@ color:#111;
 font-weight:800;
 font-size:0.9rem;
 }
-
-/* HERO */
 
 .hero{
 min-height:100vh;
@@ -252,8 +260,6 @@ font-size:0.92rem;
 color:#ccc;
 }
 
-/* GENERAL */
-
 .section{
 padding:110px 0;
 }
@@ -286,8 +292,6 @@ color:#111;
 .light .section-copy{
 color:#444;
 }
-
-/* CARDS */
 
 .grid-4{
 display:grid;
@@ -333,8 +337,6 @@ font-size:0.96rem;
 color:#555;
 }
 
-/* MAP */
-
 .map-box{
 background:
 linear-gradient(rgba(18,53,36,0.88),rgba(18,53,36,0.9)),
@@ -357,8 +359,6 @@ margin:auto;
 line-height:1.9;
 color:#d8d8d8;
 }
-
-/* JOIN */
 
 .join-grid{
 display:grid;
@@ -422,7 +422,16 @@ transition:0.3s ease;
 transform:translateY(-2px);
 }
 
-/* FINAL */
+.success-message{
+display:none;
+margin-top:16px;
+padding:14px;
+border-radius:16px;
+background:rgba(31,143,77,0.18);
+border:1px solid rgba(31,143,77,0.4);
+color:#dfffe9;
+font-size:0.92rem;
+}
 
 .final{
 padding:140px 0;
@@ -445,8 +454,6 @@ color:#bfbfbf;
 margin-bottom:44px;
 }
 
-/* FOOTER */
-
 .footer{
 padding:50px 0;
 border-top:1px solid rgba(255,255,255,0.08);
@@ -468,10 +475,11 @@ color:#bbb;
 font-size:0.95rem;
 }
 
-/* MOBILE */
+.footer-links a:hover{
+color:var(--gold);
+}
 
 @media(max-width:1080px){
-
 .hero-grid{
 grid-template-columns:1fr;
 }
@@ -483,11 +491,9 @@ grid-template-columns:repeat(2,1fr);
 .join-grid{
 grid-template-columns:1fr;
 }
-
 }
 
 @media(max-width:768px){
-
 .nav-links{
 display:none;
 }
@@ -530,11 +536,9 @@ padding:70px 24px;
 flex-direction:column;
 align-items:flex-start;
 }
-
 }
 
 @media(max-width:480px){
-
 .hero h1{
 font-size:2.9rem;
 }
@@ -556,177 +560,10 @@ grid-template-columns:1fr;
 .logo span{
 font-size:0.9rem;
 }
-
 }
 </style>
 </head>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<script>
-
-const supabaseUrl = 'https://camjdzeshedhkoqsijbv.supabase.co'
-
-const supabaseKey = 'sb_publishable_jrkN5k-HqBAdZZIr8fWlVw_vE3NLbKB'
-
-const supabaseClient = supabase.createClient(
-  supabaseUrl,
-  supabaseKey
-)
-
-console.log("🐝 Supabase Connected")
-console.log(supabaseClient)
-
-</script><script>
-
-/* SUPPORTER FORM */
-
-document
-.getElementById('supporter-form')
-.addEventListener('submit', async (e) => {
-
-e.preventDefault()
-
-const name =
-document.getElementById('supporter-name').value
-
-const city =
-document.getElementById('supporter-city').value
-
-const whatsapp =
-document.getElementById('supporter-whatsapp').value
-
-const instagram =
-document.getElementById('supporter-instagram').value
-
-const interests =
-document.getElementById('supporter-interests').value
-
-const { error } = await supabaseClient
-.from('supporters')
-.insert([
-{
-name,
-city,
-whatsapp,
-instagram,
-interests
-}
-])
-
-if(error){
-
-console.log(error)
-alert('Something went wrong.')
-
-}else{
-
-alert('🐝 Welcome To The Hive!')
-document.getElementById('supporter-form').reset()
-
-}
-
-})
-
-/* LEADER FORM */
-
-document
-.getElementById('leader-form')
-.addEventListener('submit', async (e) => {
-
-e.preventDefault()
-
-const name =
-document.getElementById('leader-name').value
-
-const locality =
-document.getElementById('leader-locality').value
-
-const projects_completed =
-document.getElementById('leader-projects').value
-
-const team_size =
-document.getElementById('leader-team').value
-
-const mission =
-document.getElementById('leader-mission').value
-
-const { error } = await supabaseClient
-.from('hive_leaders')
-.insert([
-{
-name,
-locality,
-projects_completed,
-team_size,
-mission
-}
-])
-
-if(error){
-
-console.log(error)
-alert('Something went wrong.')
-
-}else{
-
-alert('🌱 Hive Leader Application Submitted!')
-document.getElementById('leader-form').reset()
-
-}
-
-})
-
-/* POLLINATOR FORM */
-
-document
-.getElementById('pollinator-form')
-.addEventListener('submit', async (e) => {
-
-e.preventDefault()
-
-const creator_name =
-document.getElementById('pollinator-name').value
-
-const platforms =
-document.getElementById('pollinator-platforms').value
-
-const follower_count =
-document.getElementById('pollinator-followers').value
-
-const niche =
-document.getElementById('pollinator-niche').value
-
-const message =
-document.getElementById('pollinator-message').value
-
-const { error } = await supabaseClient
-.from('pollinators')
-.insert([
-{
-creator_name,
-platforms,
-follower_count,
-niche,
-message
-}
-])
-
-if(error){
-
-console.log(error)
-alert('Something went wrong.')
-
-}else{
-
-alert('🎥 Pollinator Application Submitted!')
-document.getElementById('pollinator-form').reset()
-
-}
-
-})
-
-</script><body>
+<body>
 
 <nav class="nav">
 <div class="container nav-inner">
@@ -740,7 +577,6 @@ document.getElementById('pollinator-form').reset()
 <a href="#mission">Mission</a>
 <a href="#movement">Movement</a>
 <a href="#join">Join</a>
-<a href="#pollinator">Pollinators</a>
 </div>
 
 <a href="#join" class="nav-btn">Join The Hive</a>
@@ -749,11 +585,9 @@ document.getElementById('pollinator-form').reset()
 </nav>
 
 <section class="hero">
-
 <div class="container hero-grid">
 
 <div>
-
 <div class="badge">
 ⚡ INDIA’S FIRST ECOLOGICAL CIVILIZATION MOVEMENT
 </div>
@@ -763,29 +597,22 @@ Rebuild What <span class="gradient">Keeps Us Alive.</span>
 </h1>
 
 <p>
-India doesn’t need another political party.
-India needs a civilization reset.
-Water. Soil. Food. Air. Community.
-The systems keeping us alive are collapsing — and this generation refuses to watch silently.
+India doesn’t need another political party. India needs a civilization reset. Water. Soil. Food. Air. Community.
 </p>
 
 <div class="button-row">
 <a href="#join" class="btn btn-primary">🐝 Join The Hive</a>
-<a href="#pollinator" class="btn btn-secondary">🌱 Become A Pollinator</a>
+<a href="#join" class="btn btn-secondary">🌱 Become A Pollinator</a>
 </div>
-
 </div>
 
 <div class="hero-card">
-
 <h3>🌍 The Hive Is Awakening</h3>
-
 <p>
 A youth-powered movement rebuilding India through regeneration, community and ecological intelligence.
 </p>
 
 <div class="stats">
-
 <div class="stat">
 <h2>128K+</h2>
 <span>Hive Members</span>
@@ -805,17 +632,12 @@ A youth-powered movement rebuilding India through regeneration, community and ec
 <h2>24/7</h2>
 <span>Movement Active</span>
 </div>
-
 </div>
-
 </div>
-
 </div>
-
 </section>
 
 <section class="section dark" id="mission">
-
 <div class="container">
 
 <h2 class="section-title">
@@ -823,28 +645,26 @@ This Is Not Development.
 </h2>
 
 <p class="section-copy">
-Our rivers are becoming sewers. Our food is losing life. Children are breathing poison. Soil is dying beneath our feet. Communities are becoming disconnected.
-The systems keeping us alive are collapsing.
+Our rivers are becoming sewers. Our food is losing life. Children are breathing poison. Soil is dying beneath our feet.
 </p>
 
 <div class="grid-4">
-
 <div class="card">
 <div class="card-icon">💧</div>
 <h3>Water</h3>
-<p>India’s groundwater, lakes and rivers are collapsing under pollution and extraction.</p>
+<p>India’s rivers and groundwater are collapsing under pollution and extraction.</p>
 </div>
 
 <div class="card">
 <div class="card-icon">🍚</div>
 <h3>Food</h3>
-<p>Ultra-processed food systems are disconnecting humans from nutrition and real health.</p>
+<p>Industrial food systems are disconnecting humans from real nutrition.</p>
 </div>
 
 <div class="card">
 <div class="card-icon">🌫️</div>
 <h3>Air</h3>
-<p>Millions breathe polluted air daily while clean air slowly becomes a luxury.</p>
+<p>Millions breathe polluted air while clean air becomes a luxury.</p>
 </div>
 
 <div class="card">
@@ -852,15 +672,11 @@ The systems keeping us alive are collapsing.
 <h3>Soil</h3>
 <p>Dead soil creates dead societies. Soil is living infrastructure.</p>
 </div>
-
 </div>
-
 </div>
-
 </section>
 
 <section class="section light" id="movement">
-
 <div class="container">
 
 <h2 class="section-title">
@@ -868,14 +684,10 @@ The Hive Rises.
 </h2>
 
 <p class="section-copy">
-We refuse to watch India collapse slowly.
 This generation will rebuild communities, restore ecosystems and regenerate the systems that keep humans alive.
-Not through outrage.
-Through regeneration.
 </p>
 
 <div class="grid-4">
-
 <div class="card">
 <div class="card-icon">🐝</div>
 <h3>Supporters</h3>
@@ -897,17 +709,27 @@ Through regeneration.
 <div class="card">
 <div class="card-icon">🧠</div>
 <h3>Hive Advisors</h3>
-<p>Scientists, educators, builders and ecological thinkers guiding the mission.</p>
+<p>Scientists, educators and ecological thinkers guiding the mission.</p>
 </div>
-
 </div>
-
 </div>
+</section>
 
+<section class="section dark">
+<div class="container">
+<div class="map-box">
+<h2>
+🐝 The Hive Is Spreading Across India
+</h2>
+
+<p>
+From villages to megacities, young people are reclaiming the systems that keep life alive.
+</p>
+</div>
+</div>
 </section>
 
 <section class="section dark" id="join">
-
 <div class="container">
 
 <h2 class="section-title">
@@ -915,340 +737,195 @@ Become Part Of India’s Largest Regeneration Movement.
 </h2>
 
 <p class="section-copy">
-Choose your role in the hive. Support the movement, lead real-world missions, or become a pollinator spreading the message to millions.
+Choose your role in the hive.
 </p>
 
 <div class="join-grid">
 
-<!-- SUPPORTER FORM -->
-
 <div class="form-box">
-
 <h3>🐝 Join As Supporter</h3>
-
-<p>
-Become part of the movement and receive updates, missions and future community invites.
-</p>
+<p>Become part of the movement.</p>
 
 <form id="supporter-form">
-
-<input
-type="text"
-id="supporter-name"
-placeholder="Your Name"
-required
->
-
-<input
-type="text"
-id="supporter-city"
-placeholder="City"
-required
->
-
-<input
-type="tel"
-id="supporter-whatsapp"
-placeholder="WhatsApp Number"
-required
->
-
-<input
-type="text"
-id="supporter-instagram"
-placeholder="Instagram Handle"
->
-
-<textarea
-id="supporter-interests"
-placeholder="What change do you want to see?"
-></textarea>
-
-<button type="submit" class="submit">
-JOIN THE HIVE
-</button>
-
+<input type="text" id="supporter-name" placeholder="Your Name" required>
+<input type="text" id="supporter-city" placeholder="City" required>
+<input type="tel" id="supporter-whatsapp" placeholder="WhatsApp Number" required>
+<input type="text" id="supporter-instagram" placeholder="Instagram Handle">
+<textarea id="supporter-interests" placeholder="What change do you want to see?"></textarea>
+<button type="submit" class="submit">JOIN THE HIVE</button>
+<div class="success-message" id="supporter-success">🐝 Welcome To The Hive!</div>
 </form>
-
 </div>
-
-<!-- LEADER FORM -->
 
 <div class="form-box">
-
 <h3>🌱 Become A Hive Leader</h3>
-
-<p>
-Lead local action missions like cleanups, tree planting and community restoration.
-</p>
+<p>Lead local missions and ecological action projects.</p>
 
 <form id="leader-form">
-
-<input
-type="text"
-id="leader-name"
-placeholder="Your Name"
-required
->
-
-<input
-type="text"
-id="leader-locality"
-placeholder="Locality"
-required
->
-
-<input
-type="text"
-id="leader-projects"
-placeholder="Projects Completed"
->
-
-<input
-type="text"
-id="leader-team"
-placeholder="Team Size"
->
-
-<textarea
-id="leader-mission"
-placeholder="Tell us about your mission"
-></textarea>
-
-<button type="submit" class="submit">
-LEAD YOUR HIVE
-</button>
-
+<input type="text" id="leader-name" placeholder="Your Name" required>
+<input type="text" id="leader-locality" placeholder="Locality" required>
+<input type="text" id="leader-projects" placeholder="Projects Completed">
+<input type="text" id="leader-team" placeholder="Team Size">
+<textarea id="leader-mission" placeholder="Tell us about your mission"></textarea>
+<button type="submit" class="submit">LEAD YOUR HIVE</button>
+<div class="success-message" id="leader-success">🌱 Hive Leader Application Submitted!</div>
 </form>
-
 </div>
 
-<!-- POLLINATOR FORM -->
-
-<div class="form-box" id="pollinator">
-
+<div class="form-box">
 <h3>🎥 Become A Pollinator</h3>
-
-<p>
-Creators, educators and influencers helping the movement spread across the internet.
-</p>
+<p>Creators and influencers helping the movement spread.</p>
 
 <form id="pollinator-form">
-
-<input
-type="text"
-id="pollinator-name"
-placeholder="Creator Name"
-required
->
-
-<input
-type="text"
-id="pollinator-platforms"
-placeholder="Platforms"
-required
->
-
-<input
-type="text"
-id="pollinator-followers"
-placeholder="Follower Count"
->
-
-<input
-type="text"
-id="pollinator-niche"
-placeholder="Content Niche"
->
-
-<textarea
-id="pollinator-message"
-placeholder="How will you spread the movement?"
-></textarea>
-
-<button type="submit" class="submit">
-BECOME A POLLINATOR
-</button>
-
+<input type="text" id="pollinator-name" placeholder="Creator Name" required>
+<input type="text" id="pollinator-platforms" placeholder="Platforms" required>
+<input type="text" id="pollinator-followers" placeholder="Follower Count">
+<input type="text" id="pollinator-niche" placeholder="Content Niche">
+<textarea id="pollinator-message" placeholder="How will you spread the movement?"></textarea>
+<button type="submit" class="submit">BECOME A POLLINATOR</button>
+<div class="success-message" id="pollinator-success">🎥 Pollinator Application Submitted!</div>
 </form>
-
 </div>
 
 </div>
-
 </div>
-
 </section>
 
-<script>
+<section class="final">
+<div class="container">
+<h2>
+<span class="gradient">Nature Is Infrastructure.</span>
+</h2>
 
+<p>
+Water is infrastructure. Soil is infrastructure. Food is infrastructure. Community is infrastructure.
+</p>
+
+<a href="#join" class="btn btn-primary">
+🐝 JOIN THE HIVE
+</a>
+</div>
+</section>
+
+<footer class="footer">
+<div class="container footer-inner">
+
+<div class="logo">
+<div class="logo-circle">🐝</div>
+<span>Bee Janta Party</span>
+</div>
+
+<div class="footer-links">
+<a href="#mission">Mission</a>
+<a href="#movement">Movement</a>
+<a href="#join">Join</a>
+<a href="https://instagram.com" target="_blank">Instagram</a>
+</div>
+
+</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
 document.addEventListener('DOMContentLoaded', () => {
 
-/* SUPPORTER FORM */
+const supabaseUrl = 'https://camjdzeshedhkoqsijbv.supabase.co'
 
-const supporterForm =
-document.getElementById('supporter-form')
+const supabaseKey = 'sb_publishable_jrkN5k-HqBAdZZIr8fWlVw_vE3NLbKB'
 
-if(supporterForm){
+const supabaseClient = supabase.createClient(
+supabaseUrl,
+supabaseKey
+)
+
+async function submitForm(table, payload, form, successElement){
+
+const { error } = await supabaseClient
+.from(table)
+.insert([payload])
+
+if(error){
+console.log(error)
+alert('Something went wrong.')
+return
+}
+
+successElement.style.display = 'block'
+form.reset()
+
+setTimeout(() => {
+successElement.style.display = 'none'
+}, 5000)
+}
+
+const supporterForm = document.getElementById('supporter-form')
 
 supporterForm.addEventListener('submit', async (e) => {
 
 e.preventDefault()
 
-const name =
-document.getElementById('supporter-name').value
-
-const city =
-document.getElementById('supporter-city').value
-
-const whatsapp =
-document.getElementById('supporter-whatsapp').value
-
-const instagram =
-document.getElementById('supporter-instagram').value
-
-const interests =
-document.getElementById('supporter-interests').value
-
-const { error } = await supabaseClient
-.from('supporters')
-.insert([
+await submitForm(
+'supporters',
 {
-name,
-city,
-whatsapp,
-instagram,
-interests
-}
-])
-
-if(error){
-
-console.log(error)
-alert('Something went wrong.')
-
-}else{
-
-alert('🐝 Welcome To The Hive!')
-supporterForm.reset()
-
-}
+name: document.getElementById('supporter-name').value,
+city: document.getElementById('supporter-city').value,
+whatsapp: document.getElementById('supporter-whatsapp').value,
+instagram: document.getElementById('supporter-instagram').value,
+interests: document.getElementById('supporter-interests').value
+},
+supporterForm,
+document.getElementById('supporter-success')
+)
 
 })
 
-}
-
-/* LEADER FORM */
-
-const leaderForm =
-document.getElementById('leader-form')
-
-if(leaderForm){
+const leaderForm = document.getElementById('leader-form')
 
 leaderForm.addEventListener('submit', async (e) => {
 
 e.preventDefault()
 
-const name =
-document.getElementById('leader-name').value
-
-const locality =
-document.getElementById('leader-locality').value
-
-const projects_completed =
-document.getElementById('leader-projects').value
-
-const team_size =
-document.getElementById('leader-team').value
-
-const mission =
-document.getElementById('leader-mission').value
-
-const { error } = await supabaseClient
-.from('hive_leaders')
-.insert([
+await submitForm(
+'hive_leaders',
 {
-name,
-locality,
-projects_completed,
-team_size,
-mission
-}
-])
-
-if(error){
-
-console.log(error)
-alert('Something went wrong.')
-
-}else{
-
-alert('🌱 Hive Leader Application Submitted!')
-leaderForm.reset()
-
-}
+name: document.getElementById('leader-name').value,
+locality: document.getElementById('leader-locality').value,
+projects_completed: document.getElementById('leader-projects').value,
+team_size: document.getElementById('leader-team').value,
+mission: document.getElementById('leader-mission').value
+},
+leaderForm,
+document.getElementById('leader-success')
+)
 
 })
 
-}
-
-/* POLLINATOR FORM */
-
-const pollinatorForm =
-document.getElementById('pollinator-form')
-
-if(pollinatorForm){
+const pollinatorForm = document.getElementById('pollinator-form')
 
 pollinatorForm.addEventListener('submit', async (e) => {
 
 e.preventDefault()
 
-const creator_name =
-document.getElementById('pollinator-name').value
-
-const platforms =
-document.getElementById('pollinator-platforms').value
-
-const follower_count =
-document.getElementById('pollinator-followers').value
-
-const niche =
-document.getElementById('pollinator-niche').value
-
-const message =
-document.getElementById('pollinator-message').value
-
-const { error } = await supabaseClient
-.from('pollinators')
-.insert([
+await submitForm(
+'pollinators',
 {
-creator_name,
-platforms,
-follower_count,
-niche,
-message
-}
-])
-
-if(error){
-
-console.log(error)
-alert('Something went wrong.')
-
-}else{
-
-alert('🎥 Pollinator Application Submitted!')
-pollinatorForm.reset()
-
-}
+creator_name: document.getElementById('pollinator-name').value,
+platforms: document.getElementById('pollinator-platforms').value,
+follower_count: document.getElementById('pollinator-followers').value,
+niche: document.getElementById('pollinator-niche').value,
+message: document.getElementById('pollinator-message').value
+},
+pollinatorForm,
+document.getElementById('pollinator-success')
+)
 
 })
 
-}
-
 })
-
 </script>
 
 </body>
 </html>
+```
+
