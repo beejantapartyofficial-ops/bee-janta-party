@@ -577,6 +577,155 @@ const supabaseClient = supabase.createClient(
 console.log("🐝 Supabase Connected")
 console.log(supabaseClient)
 
+</script><script>
+
+/* SUPPORTER FORM */
+
+document
+.getElementById('supporter-form')
+.addEventListener('submit', async (e) => {
+
+e.preventDefault()
+
+const name =
+document.getElementById('supporter-name').value
+
+const city =
+document.getElementById('supporter-city').value
+
+const whatsapp =
+document.getElementById('supporter-whatsapp').value
+
+const instagram =
+document.getElementById('supporter-instagram').value
+
+const interests =
+document.getElementById('supporter-interests').value
+
+const { error } = await supabaseClient
+.from('supporters')
+.insert([
+{
+name,
+city,
+whatsapp,
+instagram,
+interests
+}
+])
+
+if(error){
+
+console.log(error)
+alert('Something went wrong.')
+
+}else{
+
+alert('🐝 Welcome To The Hive!')
+document.getElementById('supporter-form').reset()
+
+}
+
+})
+
+/* LEADER FORM */
+
+document
+.getElementById('leader-form')
+.addEventListener('submit', async (e) => {
+
+e.preventDefault()
+
+const name =
+document.getElementById('leader-name').value
+
+const locality =
+document.getElementById('leader-locality').value
+
+const projects_completed =
+document.getElementById('leader-projects').value
+
+const team_size =
+document.getElementById('leader-team').value
+
+const mission =
+document.getElementById('leader-mission').value
+
+const { error } = await supabaseClient
+.from('hive_leaders')
+.insert([
+{
+name,
+locality,
+projects_completed,
+team_size,
+mission
+}
+])
+
+if(error){
+
+console.log(error)
+alert('Something went wrong.')
+
+}else{
+
+alert('🌱 Hive Leader Application Submitted!')
+document.getElementById('leader-form').reset()
+
+}
+
+})
+
+/* POLLINATOR FORM */
+
+document
+.getElementById('pollinator-form')
+.addEventListener('submit', async (e) => {
+
+e.preventDefault()
+
+const creator_name =
+document.getElementById('pollinator-name').value
+
+const platforms =
+document.getElementById('pollinator-platforms').value
+
+const follower_count =
+document.getElementById('pollinator-followers').value
+
+const niche =
+document.getElementById('pollinator-niche').value
+
+const message =
+document.getElementById('pollinator-message').value
+
+const { error } = await supabaseClient
+.from('pollinators')
+.insert([
+{
+creator_name,
+platforms,
+follower_count,
+niche,
+message
+}
+])
+
+if(error){
+
+console.log(error)
+alert('Something went wrong.')
+
+}else{
+
+alert('🎥 Pollinator Application Submitted!')
+document.getElementById('pollinator-form').reset()
+
+}
+
+})
+
 </script><body>
 
 <nav class="nav">
@@ -811,6 +960,8 @@ Choose your role in the hive. Support the movement, lead real-world missions, or
 
 <div class="join-grid">
 
+<!-- SUPPORTER FORM -->
+
 <div class="form-box">
 
 <h3>🐝 Join As Supporter</h3>
@@ -819,18 +970,49 @@ Choose your role in the hive. Support the movement, lead real-world missions, or
 Become part of the movement and receive updates, missions and future community invites.
 </p>
 
-<input type="text" placeholder="Your Name">
-<input type="text" placeholder="City">
-<input type="tel" placeholder="WhatsApp Number">
-<input type="text" placeholder="Instagram Handle">
+<form id="supporter-form">
 
-<textarea placeholder="What change do you want to see?"></textarea>
+<input
+type="text"
+id="supporter-name"
+placeholder="Your Name"
+required
+>
 
-<button class="submit">
+<input
+type="text"
+id="supporter-city"
+placeholder="City"
+required
+>
+
+<input
+type="tel"
+id="supporter-whatsapp"
+placeholder="WhatsApp Number"
+required
+>
+
+<input
+type="text"
+id="supporter-instagram"
+placeholder="Instagram Handle"
+>
+
+<textarea
+id="supporter-interests"
+placeholder="What change do you want to see?"
+></textarea>
+
+<button type="submit" class="submit">
 JOIN THE HIVE
 </button>
 
+</form>
+
 </div>
+
+<!-- HIVE LEADER FORM -->
 
 <div class="form-box">
 
@@ -840,18 +1022,48 @@ JOIN THE HIVE
 Lead local action missions like cleanups, tree planting and community restoration.
 </p>
 
-<input type="text" placeholder="Your Name">
-<input type="text" placeholder="Locality">
-<input type="text" placeholder="Projects Completed">
-<input type="text" placeholder="Team Size">
+<form id="leader-form">
 
-<textarea placeholder="Tell us about your mission"></textarea>
+<input
+type="text"
+id="leader-name"
+placeholder="Your Name"
+required
+>
 
-<button class="submit">
+<input
+type="text"
+id="leader-locality"
+placeholder="Locality"
+required
+>
+
+<input
+type="text"
+id="leader-projects"
+placeholder="Projects Completed"
+>
+
+<input
+type="text"
+id="leader-team"
+placeholder="Team Size"
+>
+
+<textarea
+id="leader-mission"
+placeholder="Tell us about your mission"
+></textarea>
+
+<button type="submit" class="submit">
 LEAD YOUR HIVE
 </button>
 
+</form>
+
 </div>
+
+<!-- POLLINATOR FORM -->
 
 <div class="form-box" id="pollinator">
 
@@ -861,18 +1073,44 @@ LEAD YOUR HIVE
 Creators, educators and influencers helping the movement spread across the internet.
 </p>
 
-<input type="text" placeholder="Creator Name">
-<input type="text" placeholder="Platforms">
-<input type="text" placeholder="Follower Count">
-<input type="text" placeholder="Content Niche">
+<form id="pollinator-form">
 
-<textarea placeholder="How will you spread the movement?"></textarea>
+<input
+type="text"
+id="pollinator-name"
+placeholder="Creator Name"
+required
+>
 
-<button class="submit">
+<input
+type="text"
+id="pollinator-platforms"
+placeholder="Platforms"
+required
+>
+
+<input
+type="text"
+id="pollinator-followers"
+placeholder="Follower Count"
+>
+
+<input
+type="text"
+id="pollinator-niche"
+placeholder="Content Niche"
+>
+
+<textarea
+id="pollinator-message"
+placeholder="How will you spread the movement?"
+></textarea>
+
+<button type="submit" class="submit">
 BECOME A POLLINATOR
 </button>
 
-</div>
+</form>
 
 </div>
 
