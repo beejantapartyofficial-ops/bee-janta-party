@@ -561,19 +561,21 @@ font-size:0.9rem;
 </style>
 </head>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
 
-const supabaseUrl = 'https://camjdzeshedhkoqsijbv.supabase.co/rest/v1/'
+const supabaseUrl = 'https://camjdzeshedhkoqsijbv.supabase.co'
+
 const supabaseKey = 'sb_publishable_jrkN5k-HqBAdZZIr8fWlVw_vE3NLbKB'
 
-const supabase = window.supabase.createClient(
+const supabaseClient = supabase.createClient(
   supabaseUrl,
   supabaseKey
 )
 
 console.log("🐝 Supabase Connected")
+console.log(supabaseClient)
 
 </script><body>
 
